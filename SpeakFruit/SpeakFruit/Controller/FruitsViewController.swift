@@ -21,17 +21,23 @@ class FruitsViewController: UIViewController {
     
     @IBOutlet weak var bgView: UIView!
     
+    @IBOutlet weak var verifierImage: UIImageView!
+
     // process input audio from microphone
     let audioEngine = AVAudioEngine()
     let speechRecognizer = SFSpeechRecognizer()
     let request = SFSpeechAudioBufferRecognitionRequest()
     var recognitionTask: SFSpeechRecognitionTask?
     
+    let fruits = Fruit.defaultFuits()
+    var index = 0
+    
     // tracks the timestamp of the last processed segment.
-    var mostRecentlyProcessedSegmentDuration: TimeInterval = 0
+//    var mostRecentlyProcessedSegmentDuration: TimeInterval = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("did load")
         view.backgroundColor = .white
         setupViews()
         
@@ -55,8 +61,15 @@ class FruitsViewController: UIViewController {
           }
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("will appear")
+        self.fruitImage.image = UIImage(named: fruits[index].name)
+        bgView.backgroundColor = UIColor(hex: fruits[index].color, alpha: 0.55)
+    }
 }
 
+// MARK: - Live Speech
 extension FruitsViewController {
     fileprivate func startRecording() throws {
         // reset the tracked duration each time recording starts
@@ -78,6 +91,7 @@ extension FruitsViewController {
         recognitionTask = speechRecognizer?.recognitionTask(with: request) { [unowned self] (result, _) in
           if let transcription = result?.bestTranscription {
             self.answerLabel.text = transcription.formattedString
+            verifyAnswer(correctAnswer: fruits[index].name, userAnswer: answerLabel.text!)
           }
         }
     }
@@ -90,20 +104,42 @@ extension FruitsViewController {
     }
 }
 
+// MARK: - Setup View
 extension FruitsViewController {
     func setupViews() {
         //title
-        titleLabel.text = "Say the fruit name (:"
         titleLabel.font = .rounded(ofSize: 32, weight: .semibold)
         
         //image
 //        fruitImage.contentMode = as
         fruitImage.layer.applyShadow(layer: fruitImage.layer, shadowColor: UIColor.black.cgColor)
-        fruitImage.image = UIImage(named: "apple")
-        bgView.backgroundColor = UIColor(red: 0.87, green: 0.14, blue: 0.16, alpha: 0.55)
+        fruitImage.image = UIImage(named: fruits[index].name)
+        bgView.backgroundColor = UIColor(hex: fruits[index].color, alpha: 0.55)
         
         //answer
         answerView.layer.applyShadow(layer: answerView.layer, shadowColor: UIColor.black.cgColor)
         answerLabel.font = .rounded(ofSize: 80, weight: .semibold)
+        
+        //verifier
+        verifierImage.isHidden = true
+    }
+}
+
+// MARK: - Verify Answer
+extension FruitsViewController {
+    func verifyAnswer(correctAnswer: String, userAnswer: String) {
+        if correctAnswer == userAnswer {
+            self.verifierImage.image = UIImage(systemName: "checkmark")
+            self.verifierImage.tintColor = UIColor(hex: "00B600")
+            self.verifierImage.isHidden = false
+            self.index += 1
+            
+            stopRecording()
+            viewWillAppear(true)
+        } else {
+            self.verifierImage.image = UIImage(systemName: "xmark")
+            self.verifierImage.tintColor = UIColor(hex: "EF0000")
+            self.verifierImage.isHidden = false
+        }
     }
 }

@@ -21,21 +21,21 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yTd-f5-5g9" userLabel="fruitImage">
-                                <rect key="frame" x="45" y="259" width="324" height="325"/>
+                                <rect key="frame" x="45" y="299" width="324" height="325"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="325" id="fmP-Gp-uCF"/>
                                     <constraint firstAttribute="width" constant="324" id="pwV-Yh-WCE"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="talkBalloon" translatesAutoresizingMaskIntoConstraints="NO" id="50z-Ki-cb6">
-                                <rect key="frame" x="42" y="173" width="330" height="103"/>
+                                <rect key="frame" x="42" y="173" width="328" height="143"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="330" id="N02-og-tIO"/>
-                                    <constraint firstAttribute="height" constant="103" id="a9X-QQ-YRC"/>
+                                    <constraint firstAttribute="width" constant="328" id="N02-og-tIO"/>
+                                    <constraint firstAttribute="height" constant="143" id="a9X-QQ-YRC"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTY-A5-Ozc" userLabel="answerView">
-                                <rect key="frame" x="46" y="622" width="322" height="106"/>
+                                <rect key="frame" x="46" y="662" width="322" height="106"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_ _ _ _" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t15-aq-MrL" userLabel="answerLabel">
                                         <rect key="frame" x="47.5" y="5.5" width="227" height="95.5"/>
@@ -51,15 +51,25 @@
                                     <constraint firstAttribute="height" constant="106" id="pTS-oK-qxZ"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Say the fruit name (:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqC-y8-cpi">
-                                <rect key="frame" x="62" y="208" width="290" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqC-y8-cpi">
+                                <rect key="frame" x="61" y="226" width="290" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="290" id="MS1-gt-eyX"/>
                                 </constraints>
+                                <string key="text">Qual o nome dessa
+fruta em inglês?</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lfr-Ls-9vY">
+                                <rect key="frame" x="154" y="662" width="106" height="106"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="106" id="PFM-Uq-6i5"/>
+                                    <constraint firstAttribute="height" constant="106" id="myj-0U-9wn"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -68,18 +78,18 @@
                             <constraint firstItem="yTd-f5-5g9" firstAttribute="top" secondItem="50z-Ki-cb6" secondAttribute="bottom" constant="-17" id="DNM-iu-GVy"/>
                             <constraint firstItem="tTY-A5-Ozc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="G6k-tC-2Md"/>
                             <constraint firstItem="tTY-A5-Ozc" firstAttribute="top" secondItem="yTd-f5-5g9" secondAttribute="bottom" constant="38" id="Kxt-47-xFz"/>
-                            <constraint firstItem="50z-Ki-cb6" firstAttribute="top" secondItem="fqC-y8-cpi" secondAttribute="bottom" constant="-56" id="PCU-13-dm6"/>
+                            <constraint firstItem="Lfr-Ls-9vY" firstAttribute="centerY" secondItem="tTY-A5-Ozc" secondAttribute="centerY" id="Md6-jt-B3b"/>
+                            <constraint firstItem="50z-Ki-cb6" firstAttribute="top" secondItem="fqC-y8-cpi" secondAttribute="bottom" constant="-94" id="PCU-13-dm6"/>
                             <constraint firstItem="50z-Ki-cb6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="129" id="PrE-Ne-mds"/>
                             <constraint firstItem="yTd-f5-5g9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="QZI-z6-gGl"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yTd-f5-5g9" secondAttribute="trailing" constant="45" id="STE-qN-VfS"/>
-                            <constraint firstItem="fqC-y8-cpi" firstAttribute="leading" secondItem="50z-Ki-cb6" secondAttribute="trailing" constant="-310" id="T42-wp-xHe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tTY-A5-Ozc" secondAttribute="trailing" constant="46" id="Xek-g0-gG5"/>
+                            <constraint firstItem="Lfr-Ls-9vY" firstAttribute="centerX" secondItem="tTY-A5-Ozc" secondAttribute="centerX" id="cHu-Jp-TfN"/>
                             <constraint firstItem="qqV-7e-44i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eNJ-VF-MDL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fqC-y8-cpi" secondAttribute="trailing" symbolic="YES" id="iHo-ae-tEM"/>
                             <constraint firstItem="qqV-7e-44i" firstAttribute="centerX" secondItem="tTY-A5-Ozc" secondAttribute="centerX" id="jlr-dj-sfu"/>
                             <constraint firstItem="50z-Ki-cb6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="42" id="n9t-Ss-y2h"/>
                             <constraint firstAttribute="bottom" secondItem="qqV-7e-44i" secondAttribute="bottom" id="ncM-Ve-pyI"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="50z-Ki-cb6" secondAttribute="trailing" constant="42" id="z8a-qa-Lpo"/>
+                            <constraint firstItem="fqC-y8-cpi" firstAttribute="leading" secondItem="50z-Ki-cb6" secondAttribute="leading" constant="19" id="ogk-WV-mhz"/>
+                            <constraint firstItem="fqC-y8-cpi" firstAttribute="trailing" secondItem="50z-Ki-cb6" secondAttribute="trailing" constant="-19" id="rXQ-J3-gIc"/>
                         </constraints>
                     </view>
                     <connections>
@@ -88,6 +98,7 @@
                         <outlet property="bgView" destination="qqV-7e-44i" id="OM1-wd-NGN"/>
                         <outlet property="fruitImage" destination="yTd-f5-5g9" id="Jk5-Zm-Eys"/>
                         <outlet property="titleLabel" destination="fqC-y8-cpi" id="8Vo-ng-1Fl"/>
+                        <outlet property="verifierImage" destination="Lfr-Ls-9vY" id="nFG-e4-VVM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -96,7 +107,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="talkBalloon" width="348" height="126"/>
+        <image name="talkBalloon" width="346" height="166"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
