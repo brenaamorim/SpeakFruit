@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		E60E755526821B3A0087E592 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60E755426821B3A0087E592 /* AppDelegate.swift */; };
 		E60E755726821B3A0087E592 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60E755626821B3A0087E592 /* SceneDelegate.swift */; };
-		E60E755926821B3A0087E592 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60E755826821B3A0087E592 /* ViewController.swift */; };
+		E60E755926821B3A0087E592 /* FruitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60E755826821B3A0087E592 /* FruitsViewController.swift */; };
 		E60E755C26821B3A0087E592 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60E755A26821B3A0087E592 /* Main.storyboard */; };
 		E60E755E26821B3D0087E592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E60E755D26821B3D0087E592 /* Assets.xcassets */; };
 		E60E756126821B3D0087E592 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E60E755F26821B3D0087E592 /* LaunchScreen.storyboard */; };
 		E60E756C26821B3D0087E592 /* SpeakFruitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60E756B26821B3D0087E592 /* SpeakFruitTests.swift */; };
 		E60E757726821B3D0087E592 /* SpeakFruitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60E757626821B3D0087E592 /* SpeakFruitUITests.swift */; };
+		E60E7586268271320087E592 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60E7585268271320087E592 /* FontExtension.swift */; };
+		E60E758C268275D20087E592 /* LayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60E758B268275D20087E592 /* LayerExtension.swift */; };
+		E60E758E268278540087E592 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60E758D268278540087E592 /* ColorExtension.swift */; };
+		E60E75902683559C0087E592 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60E758F2683559C0087E592 /* Fruit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +42,7 @@
 		E60E755126821B3A0087E592 /* SpeakFruit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeakFruit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60E755426821B3A0087E592 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E60E755626821B3A0087E592 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E60E755826821B3A0087E592 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E60E755826821B3A0087E592 /* FruitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitsViewController.swift; sourceTree = "<group>"; };
 		E60E755B26821B3A0087E592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E60E755D26821B3D0087E592 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E60E756026821B3D0087E592 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +53,10 @@
 		E60E757226821B3D0087E592 /* SpeakFruitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeakFruitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60E757626821B3D0087E592 /* SpeakFruitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakFruitUITests.swift; sourceTree = "<group>"; };
 		E60E757826821B3D0087E592 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E60E7585268271320087E592 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
+		E60E758B268275D20087E592 /* LayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerExtension.swift; sourceTree = "<group>"; };
+		E60E758D268278540087E592 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		E60E758F2683559C0087E592 /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +107,11 @@
 		E60E755326821B3A0087E592 /* SpeakFruit */ = {
 			isa = PBXGroup;
 			children = (
-				E60E755426821B3A0087E592 /* AppDelegate.swift */,
-				E60E755626821B3A0087E592 /* SceneDelegate.swift */,
-				E60E755826821B3A0087E592 /* ViewController.swift */,
-				E60E755A26821B3A0087E592 /* Main.storyboard */,
-				E60E755D26821B3D0087E592 /* Assets.xcassets */,
-				E60E755F26821B3D0087E592 /* LaunchScreen.storyboard */,
 				E60E756226821B3D0087E592 /* Info.plist */,
+				E60E7587268271640087E592 /* Model */,
+				E60E7588268271690087E592 /* View  */,
+				E60E75892682716F0087E592 /* Controller */,
+				E60E758A2682717F0087E592 /* Supporting Files */,
 			);
 			path = SpeakFruit;
 			sourceTree = "<group>";
@@ -126,6 +132,44 @@
 				E60E757826821B3D0087E592 /* Info.plist */,
 			);
 			path = SpeakFruitUITests;
+			sourceTree = "<group>";
+		};
+		E60E7587268271640087E592 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E60E758F2683559C0087E592 /* Fruit.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E60E7588268271690087E592 /* View  */ = {
+			isa = PBXGroup;
+			children = (
+				E60E755D26821B3D0087E592 /* Assets.xcassets */,
+				E60E755F26821B3D0087E592 /* LaunchScreen.storyboard */,
+				E60E755A26821B3A0087E592 /* Main.storyboard */,
+			);
+			path = "View ";
+			sourceTree = "<group>";
+		};
+		E60E75892682716F0087E592 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E60E755826821B3A0087E592 /* FruitsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E60E758A2682717F0087E592 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E60E755426821B3A0087E592 /* AppDelegate.swift */,
+				E60E755626821B3A0087E592 /* SceneDelegate.swift */,
+				E60E7585268271320087E592 /* FontExtension.swift */,
+				E60E758B268275D20087E592 /* LayerExtension.swift */,
+				E60E758D268278540087E592 /* ColorExtension.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,9 +323,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E60E755926821B3A0087E592 /* ViewController.swift in Sources */,
+				E60E755926821B3A0087E592 /* FruitsViewController.swift in Sources */,
 				E60E755526821B3A0087E592 /* AppDelegate.swift in Sources */,
+				E60E7586268271320087E592 /* FontExtension.swift in Sources */,
+				E60E758E268278540087E592 /* ColorExtension.swift in Sources */,
+				E60E75902683559C0087E592 /* Fruit.swift in Sources */,
 				E60E755726821B3A0087E592 /* SceneDelegate.swift in Sources */,
+				E60E758C268275D20087E592 /* LayerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +515,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.brenaamorim.SpeakFruit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -486,7 +534,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.brenaamorim.SpeakFruit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
