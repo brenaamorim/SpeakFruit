@@ -62,6 +62,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>O app mostrar suas respostas em forma de texto</string>
 </dict>
