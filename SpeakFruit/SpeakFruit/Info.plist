@@ -64,7 +64,9 @@
 	</array>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>O app mostrar suas respostas em forma de texto</string>
+	<string>O app mostra suas respostas em forma de texto</string>
 </dict>
 </plist>
