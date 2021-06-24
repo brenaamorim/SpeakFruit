@@ -22,7 +22,9 @@ class FruitsViewController: UIViewController {
     @IBOutlet weak var bgView: UIView!
     
     @IBOutlet weak var verifierImage: UIImageView!
-
+    
+    @IBOutlet weak var correctAnswers: UILabel!
+    
     // process input audio from microphone
     let audioEngine = AVAudioEngine()
     let speechRecognizer = SFSpeechRecognizer()
@@ -31,9 +33,10 @@ class FruitsViewController: UIViewController {
     
     let fruits = Fruit.defaultFuits()
     var index = 0
+    var lastAnswer: String = ""
     
     // tracks the timestamp of the last processed segment.
-//    var mostRecentlyProcessedSegmentDuration: TimeInterval = 0
+    var mostRecentlyProcessedSegmentDuration: TimeInterval = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,9 +66,25 @@ class FruitsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         print("will appear")
-        self.fruitImage.image = UIImage(named: fruits[index].name)
-        bgView.backgroundColor = UIColor(hex: fruits[index].color, alpha: 0.55)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
+            self.fruitImage.image = UIImage(named: fruits[index].name)
+            bgView.backgroundColor = UIColor(hex: fruits[index].color, alpha: 0.55)
+            
+            viewDidAppear(true)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        verifierImage.isHidden = true
+        if fruits[index].numberOfLetters > 5 {
+            answerLabel.font = .rounded(ofSize: 50, weight: .semibold)
+        }
+        let answer = String(repeating: "_ ", count: fruits[index].numberOfLetters)
+        answerLabel.text = String(answer.dropLast())
     }
 }
 
@@ -73,7 +92,7 @@ class FruitsViewController: UIViewController {
 extension FruitsViewController {
     fileprivate func startRecording() throws {
         // reset the tracked duration each time recording starts
-//        mostRecentlyProcessedSegmentDuration = 0
+        mostRecentlyProcessedSegmentDuration = 0
 
         //input audio
         let node = audioEngine.inputNode
@@ -90,8 +109,12 @@ extension FruitsViewController {
         
         recognitionTask = speechRecognizer?.recognitionTask(with: request) { [unowned self] (result, _) in
           if let transcription = result?.bestTranscription {
-            self.answerLabel.text = transcription.formattedString
-            verifyAnswer(correctAnswer: fruits[index].name, userAnswer: answerLabel.text!)
+//            let text = transcription.formattedString.split(separator: " ")
+//            print(text)
+            
+            self.updateUIWithTranscription(transcription)
+            lastAnswer = answerLabel.text!
+//            text = []
           }
         }
     }
@@ -118,10 +141,14 @@ extension FruitsViewController {
         
         //answer
         answerView.layer.applyShadow(layer: answerView.layer, shadowColor: UIColor.black.cgColor)
+        
+        answerLabel.text = String(repeating: "_ ", count: fruits[index].numberOfLetters)
         answerLabel.font = .rounded(ofSize: 80, weight: .semibold)
         
         //verifier
         verifierImage.isHidden = true
+        correctAnswers.font = .rounded(ofSize: 22, weight: .bold)
+        correctAnswers.text = "\(index)/12"
     }
 }
 
@@ -132,9 +159,10 @@ extension FruitsViewController {
             self.verifierImage.image = UIImage(systemName: "checkmark")
             self.verifierImage.tintColor = UIColor(hex: "00B600")
             self.verifierImage.isHidden = false
+            
+            correctAnswers.text = "\(index + 1)/12"
             self.index += 1
             
-            stopRecording()
             viewWillAppear(true)
         } else {
             self.verifierImage.image = UIImage(systemName: "xmark")
@@ -142,4 +170,20 @@ extension FruitsViewController {
             self.verifierImage.isHidden = false
         }
     }
+}
+
+// MARK: - Update Transcription
+extension FruitsViewController {
+    fileprivate func updateUIWithTranscription(_ transcription: SFTranscription) {
+      if let lastSegment = transcription.segments.last,
+        lastSegment.duration >= mostRecentlyProcessedSegmentDuration {
+        mostRecentlyProcessedSegmentDuration = lastSegment.duration
+        self.answerLabel.text = lastSegment.substring.lowercased()
+        print(lastSegment.substring.lowercased())
+        if lastSegment.substring.lowercased() != lastAnswer {
+            verifyAnswer(correctAnswer: fruits[index].name, userAnswer: answerLabel.text!)
+        }
+      }
+    }
+
 }

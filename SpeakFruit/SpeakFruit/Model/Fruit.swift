@@ -8,9 +8,9 @@
 import Foundation
 
 let fruitNames = [
-    ("Apple", 5, "DD2329"), ("Banana", 6, "F8BAC7"), ("Guava", 5, "EDC1A6"),
-    ("Kiwi", 4, "ECC100"), ("Mango", 5, "5917AF"), ("Orange", 6, "DDD461"),
-    ("Peach", 5, "FB774C"), ("Pear", 4, "B2C300"), ("persimmon", 9, "FFBD3F"),
+    ("apple", 5, "DD2329"), ("banana", 6, "F8BAC7"), ("guava", 5, "EDC1A6"),
+    ("kiwi", 4, "ECC100"), ("mango", 5, "5917AF"), ("orange", 6, "DDD461"),
+    ("peach", 5, "FB774C"), ("pear", 4, "B2C300"), ("persimmon", 9, "FFBD3F"),
     ("plum", 4, "321421"), ("pomegranate", 11, "C32C2F"), ("tomato", 6, "499A62")]
 
 struct Fruit {

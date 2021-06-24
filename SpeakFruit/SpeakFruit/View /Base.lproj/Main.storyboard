@@ -18,7 +18,52 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqV-7e-44i" userLabel="bgView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnd-6s-PLz">
+                                        <rect key="frame" x="16" y="80" width="111" height="45"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="j4o-e4-TGW">
+                                                <rect key="frame" x="8" y="9" width="31" height="26.5"/>
+                                                <color key="tintColor" red="0.0" green="0.71372549019999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="31" id="QJr-CX-dZH"/>
+                                                    <constraint firstAttribute="height" constant="29" id="S8d-Vi-R5p"/>
+                                                </constraints>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="heavy"/>
+                                            </imageView>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3n-uo-Wox">
+                                                <rect key="frame" x="47" y="8" width="56" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="29" id="Bf5-L6-6nP"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="4Mg-VX-TA1"/>
+                                            <constraint firstItem="j4o-e4-TGW" firstAttribute="top" secondItem="bnd-6s-PLz" secondAttribute="top" constant="8" id="7Vt-m1-Q1x"/>
+                                            <constraint firstItem="j4o-e4-TGW" firstAttribute="leading" secondItem="bnd-6s-PLz" secondAttribute="leading" constant="8" id="BeG-qk-fWn"/>
+                                            <constraint firstAttribute="trailing" secondItem="z3n-uo-Wox" secondAttribute="trailing" constant="8" id="TrV-fW-qFE"/>
+                                            <constraint firstAttribute="width" constant="111" id="Wgs-3t-KBb"/>
+                                            <constraint firstItem="z3n-uo-Wox" firstAttribute="top" secondItem="bnd-6s-PLz" secondAttribute="top" constant="8" id="gFn-Ny-MYG"/>
+                                            <constraint firstItem="z3n-uo-Wox" firstAttribute="leading" secondItem="j4o-e4-TGW" secondAttribute="trailing" constant="8" id="qnB-Bz-dHI"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="22"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="bnd-6s-PLz" firstAttribute="top" secondItem="qqV-7e-44i" secondAttribute="top" constant="80" id="59I-LS-R1K"/>
+                                    <constraint firstItem="bnd-6s-PLz" firstAttribute="leading" secondItem="qqV-7e-44i" secondAttribute="leading" constant="16" id="l8p-0K-ung"/>
+                                </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yTd-f5-5g9" userLabel="fruitImage">
                                 <rect key="frame" x="45" y="299" width="324" height="325"/>
@@ -35,10 +80,10 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTY-A5-Ozc" userLabel="answerView">
-                                <rect key="frame" x="46" y="662" width="322" height="106"/>
+                                <rect key="frame" x="24" y="662" width="366" height="106"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_ _ _ _" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t15-aq-MrL" userLabel="answerLabel">
-                                        <rect key="frame" x="47.5" y="5.5" width="227" height="95.5"/>
+                                        <rect key="frame" x="69.5" y="5.5" width="227" height="95.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="80"/>
                                         <color key="textColor" red="0.16470588235294117" green="0.16470588235294117" blue="0.16470588235294117" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -76,13 +121,13 @@ fruta em inglês?</string>
                         <constraints>
                             <constraint firstItem="qqV-7e-44i" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1Xp-Gv-c7N"/>
                             <constraint firstItem="yTd-f5-5g9" firstAttribute="top" secondItem="50z-Ki-cb6" secondAttribute="bottom" constant="-17" id="DNM-iu-GVy"/>
-                            <constraint firstItem="tTY-A5-Ozc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="G6k-tC-2Md"/>
+                            <constraint firstItem="tTY-A5-Ozc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="G6k-tC-2Md"/>
                             <constraint firstItem="tTY-A5-Ozc" firstAttribute="top" secondItem="yTd-f5-5g9" secondAttribute="bottom" constant="38" id="Kxt-47-xFz"/>
                             <constraint firstItem="Lfr-Ls-9vY" firstAttribute="centerY" secondItem="tTY-A5-Ozc" secondAttribute="centerY" id="Md6-jt-B3b"/>
                             <constraint firstItem="50z-Ki-cb6" firstAttribute="top" secondItem="fqC-y8-cpi" secondAttribute="bottom" constant="-94" id="PCU-13-dm6"/>
                             <constraint firstItem="50z-Ki-cb6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="129" id="PrE-Ne-mds"/>
                             <constraint firstItem="yTd-f5-5g9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="QZI-z6-gGl"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tTY-A5-Ozc" secondAttribute="trailing" constant="46" id="Xek-g0-gG5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tTY-A5-Ozc" secondAttribute="trailing" constant="24" id="Xek-g0-gG5"/>
                             <constraint firstItem="Lfr-Ls-9vY" firstAttribute="centerX" secondItem="tTY-A5-Ozc" secondAttribute="centerX" id="cHu-Jp-TfN"/>
                             <constraint firstItem="qqV-7e-44i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eNJ-VF-MDL"/>
                             <constraint firstItem="qqV-7e-44i" firstAttribute="centerX" secondItem="tTY-A5-Ozc" secondAttribute="centerX" id="jlr-dj-sfu"/>
@@ -96,6 +141,7 @@ fruta em inglês?</string>
                         <outlet property="answerLabel" destination="t15-aq-MrL" id="NTn-hE-5cg"/>
                         <outlet property="answerView" destination="tTY-A5-Ozc" id="eH3-he-DZI"/>
                         <outlet property="bgView" destination="qqV-7e-44i" id="OM1-wd-NGN"/>
+                        <outlet property="correctAnswers" destination="z3n-uo-Wox" id="M8M-NX-bhU"/>
                         <outlet property="fruitImage" destination="yTd-f5-5g9" id="Jk5-Zm-Eys"/>
                         <outlet property="titleLabel" destination="fqC-y8-cpi" id="8Vo-ng-1Fl"/>
                         <outlet property="verifierImage" destination="Lfr-Ls-9vY" id="nFG-e4-VVM"/>
@@ -107,6 +153,7 @@ fruta em inglês?</string>
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="talkBalloon" width="346" height="166"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
