@@ -11,7 +11,7 @@
         <!--Fruits View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FruitsViewController" customModule="SpeakFruit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FruitsViewController" id="BYZ-38-t0r" customClass="FruitsViewController" customModule="SpeakFruit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,11 +58,34 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="qcG-ES-ga9">
+                                        <rect key="frame" x="353" y="80" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="NRH-eX-ktt"/>
+                                            <constraint firstAttribute="width" constant="45" id="t0i-XW-IPT"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvs-N6-zdA" customClass="MicButton" customModule="SpeakFruit" customModuleProvider="target">
+                                        <rect key="frame" x="362" y="89" width="27" height="27"/>
+                                        <color key="tintColor" red="0.16470588235294117" green="0.16470588235294117" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="micDisable">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="micButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CRn-qq-k1M"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="bnd-6s-PLz" firstAttribute="top" secondItem="qqV-7e-44i" secondAttribute="top" constant="80" id="59I-LS-R1K"/>
+                                    <constraint firstItem="bvs-N6-zdA" firstAttribute="centerY" secondItem="qcG-ES-ga9" secondAttribute="centerY" id="EfK-2l-fcy"/>
+                                    <constraint firstItem="bvs-N6-zdA" firstAttribute="top" secondItem="qcG-ES-ga9" secondAttribute="bottom" constant="-36" id="EtS-aK-sy4"/>
+                                    <constraint firstAttribute="trailing" secondItem="qcG-ES-ga9" secondAttribute="trailing" constant="16" id="IoJ-uS-fVq"/>
+                                    <constraint firstItem="bvs-N6-zdA" firstAttribute="centerX" secondItem="qcG-ES-ga9" secondAttribute="centerX" id="MO4-sB-14A"/>
                                     <constraint firstItem="bnd-6s-PLz" firstAttribute="leading" secondItem="qqV-7e-44i" secondAttribute="leading" constant="16" id="l8p-0K-ung"/>
+                                    <constraint firstItem="qcG-ES-ga9" firstAttribute="centerY" secondItem="bnd-6s-PLz" secondAttribute="centerY" id="mtn-k5-bR2"/>
+                                    <constraint firstItem="qcG-ES-ga9" firstAttribute="leading" secondItem="bvs-N6-zdA" secondAttribute="trailing" constant="-36" id="vri-ah-KmL"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yTd-f5-5g9" userLabel="fruitImage">
@@ -143,6 +166,7 @@ fruta em inglês?</string>
                         <outlet property="bgView" destination="qqV-7e-44i" id="OM1-wd-NGN"/>
                         <outlet property="correctAnswers" destination="z3n-uo-Wox" id="M8M-NX-bhU"/>
                         <outlet property="fruitImage" destination="yTd-f5-5g9" id="Jk5-Zm-Eys"/>
+                        <outlet property="micButton" destination="bvs-N6-zdA" id="1zf-QN-YLt"/>
                         <outlet property="titleLabel" destination="fqC-y8-cpi" id="8Vo-ng-1Fl"/>
                         <outlet property="verifierImage" destination="Lfr-Ls-9vY" id="nFG-e4-VVM"/>
                     </connections>
@@ -152,8 +176,15 @@ fruta em inglês?</string>
             <point key="canvasLocation" x="31.884057971014496" y="114.50892857142857"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="bvs-N6-zdA">
+            <size key="intrinsicContentSize" width="19" height="25"/>
+        </designable>
+    </designables>
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>
+        <image name="circle" width="47" height="47"/>
+        <image name="micDisable" width="19" height="25"/>
         <image name="talkBalloon" width="346" height="166"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

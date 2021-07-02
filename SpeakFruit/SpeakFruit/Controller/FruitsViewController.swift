@@ -25,6 +25,43 @@ class FruitsViewController: UIViewController {
     
     @IBOutlet weak var correctAnswers: UILabel!
     
+    @IBOutlet weak var micButton: UIButton!
+    
+    @IBAction func micButtonPressed(_ sender: MicButton) {
+        micButton.isSelected = !micButton.isSelected
+
+        if micButton.isSelected {
+            // request authorization
+            SFSpeechRecognizer.requestAuthorization { [unowned self] (authStatus) in
+              switch authStatus {
+              case .authorized:
+                do {
+                  try self.startRecording()
+                } catch let error {
+                  print("There was a problem starting recording: \(error.localizedDescription)")
+                }
+              case .denied:
+                print("Speech recognition authorization denied")
+              case .restricted:
+                print("Not available on this device")
+              case .notDetermined:
+                print("Not determined")
+              @unknown default:
+                print("Another type error occur")
+              }
+            }
+        } else {
+            stopRecording()
+        }
+        
+        print(micButton.isSelected)
+        print("button pressed!")
+    }
+    
+    //    @IBAction func openMic(_ sender: MicButton) {
+//        stopRecording()
+//    }
+
     // process input audio from microphone
     let audioEngine = AVAudioEngine()
     let speechRecognizer = SFSpeechRecognizer()
@@ -40,34 +77,12 @@ class FruitsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("did load")
         view.backgroundColor = .white
         setupViews()
-        
-        // request authorization
-        SFSpeechRecognizer.requestAuthorization { [unowned self] (authStatus) in
-          switch authStatus {
-          case .authorized:
-            do {
-              try self.startRecording()
-            } catch let error {
-              print("There was a problem starting recording: \(error.localizedDescription)")
-            }
-          case .denied:
-            print("Speech recognition authorization denied")
-          case .restricted:
-            print("Not available on this device")
-          case .notDetermined:
-            print("Not determined")
-          @unknown default:
-            print("Another type error occur")
-          }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("will appear")
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
             self.fruitImage.image = UIImage(named: fruits[index].name)
@@ -79,12 +94,17 @@ class FruitsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         verifierImage.isHidden = true
         if fruits[index].numberOfLetters > 5 {
             answerLabel.font = .rounded(ofSize: 50, weight: .semibold)
         }
         let answer = String(repeating: "_ ", count: fruits[index].numberOfLetters)
         answerLabel.text = String(answer.dropLast())
+    }
+    
+    @objc func pressedButton() {
+        print("button pressed")
     }
 }
 
@@ -98,6 +118,9 @@ extension FruitsViewController {
         let node = audioEngine.inputNode
         let recordingFormat = node.outputFormat(forBus: 0)
         
+        // remove tap each iteration
+        node.removeTap(onBus: 0)
+
         //When the buffer is filled, the closure returns the data in buffer which is appended to the SFSpeechAudioBufferRecognitionRequest
         node.installTap(onBus: 0, bufferSize: 32, format: recordingFormat) { [unowned self] (buffer, _) in
             self.request.append(buffer)
@@ -109,8 +132,7 @@ extension FruitsViewController {
         
         recognitionTask = speechRecognizer?.recognitionTask(with: request) { [unowned self] (result, _) in
           if let transcription = result?.bestTranscription {
-//            let text = transcription.formattedString.split(separator: " ")
-//            print(text)
+//            let text = transcription.formattedString
             
             self.updateUIWithTranscription(transcription)
             lastAnswer = answerLabel.text!
@@ -163,6 +185,8 @@ extension FruitsViewController {
             correctAnswers.text = "\(index + 1)/12"
             self.index += 1
             
+            stopRecording()
+            micButton.isSelected = false
             viewWillAppear(true)
         } else {
             self.verifierImage.image = UIImage(systemName: "xmark")
